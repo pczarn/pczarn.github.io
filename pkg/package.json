@@ -1,0 +1,18 @@
+{
+  "name": "gearley-wasm",
+  "type": "module",
+  "collaborators": [
+    "peterb"
+  ],
+  "version": "0.1.0",
+  "files": [
+    "gearley_wasm_bg.wasm",
+    "gearley_wasm.js",
+    "gearley_wasm.d.ts"
+  ],
+  "main": "gearley_wasm.js",
+  "types": "gearley_wasm.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
