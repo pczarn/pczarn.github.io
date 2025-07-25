@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.43.2](https://github.com/ajaxorg/ace/compare/v1.43.1...v1.43.2) (2025-07-15)
+
+
+### Features
+
+* Implement text markers ([#5835](https://github.com/ajaxorg/ace/issues/5835)) ([085730f](https://github.com/ajaxorg/ace/commit/085730fff987ec88c2350146f18b42b17532d47f))
+
+### [1.43.1](https://github.com/ajaxorg/ace/compare/v1.43.0...v1.43.1) (2025-07-02)
+
+
+### Bug Fixes
+
+* **a11y:** aria-describedby to gutter elements ([#5838](https://github.com/ajaxorg/ace/issues/5838)) ([bf27c15](https://github.com/ajaxorg/ace/commit/bf27c151685ac486a991a61d67fa04adf8891c76))
+
 ### [1.42.1](https://github.com/ajaxorg/ace/compare/v1.42.0...v1.42.1) (2025-06-20)
 
 

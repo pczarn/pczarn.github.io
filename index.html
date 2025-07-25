@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-
 <html>
     <head>
-        <meta charset="utf-8" />
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>
-            A visualization for gearley
+            A debugging-oriented visualization for gearley
         </title>
 
         <style type="text/css" media="screen">
@@ -12,121 +12,12 @@
                 margin: 0;
                 padding: 0;
             }
-
-            .container {
-                display: flex;
-                flex-direction: column;
-                height: 100vh;
-            }
-
-            .top-box {
-                position: relative;
-                background-color: #4CAF50;
-                padding: 20px;
-                text-align: center;
-                color: white;
-                flex: 0 0 100px;
-                border-bottom: gray solid 4px;
-            }
-
-            #input_editor {
-                position: absolute;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-            }
-
-            .bottom-row {
-                display: flex;
-                flex: 1;
-            }
-
-            .left-box, .right-box {
-                flex: 1;
-                overflow: auto;
-                padding: 20px;
-            }
-
-            .left-box {
-                background-color: #f1f1f1;
-                border-right: gray solid 2px;
-                position: relative;
-            }
-
-            #grammar_editor {
-                position: absolute;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-            }
-
-            .right-box {
-                background-color: #ddd;
-                border-left: gray solid 2px;
-                font-family: 'Courier New', Courier, monospace;
-            }
-
-            #result {
-                height: 60vh;
-            }
         </style>
+      <script type="module" crossorigin src="/assets/index-tDw226PS.js"></script>
+      <link rel="stylesheet" crossorigin href="/assets/index-BrkyC02U.css">
     </head>
     <body>
-        <div class="container">
-            <div class="top-box">
-                <div id="input_editor">a b c d</div>
-            </div>
-            <div class="bottom-row">
-                <div class="left-box">
-                    <div id="grammar_editor">test ::= a b c d;</div>
-                </div>
-                <div class="right-box">
-                    <div id="result">
-                        <Result></Result>
-                    </div>
-                </div>
-            </div>
+        <div id="app">
         </div>
-        <script src="https://unpkg.com/vue@latest"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vue3-sfc-loader/dist/vue3-sfc-loader.js"></script>
-        <script src="ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
-        <script type="module">
-            import init, { parse } from "/pkg/gearley_wasm.js";
-            import { createApp } from 'https://unpkg.com/petite-vue?module'
-
-            window._parse = parse
-            await init().catch(console.error);
-
-            const options = {
-                moduleCache: {
-                    vue: Vue
-                },
-                async getFile(url) {
-                    
-                    const res = await fetch(url);
-                    if ( !res.ok )
-                    throw Object.assign(new Error(res.statusText + ' ' + url), { res });
-                    return {
-                    getContentData: asBinary => asBinary ? res.arrayBuffer() : res.text(),
-                    }
-                },
-                addStyle(textContent) {
-
-                    const style = Object.assign(document.createElement('style'), { textContent });
-                    const ref = document.head.getElementsByTagName('style')[0] || null;
-                    document.head.insertBefore(style, ref);
-                },
-            }
-
-            const { loadModule } = window['vue3-sfc-loader'];
-
-            const app = Vue.createApp({});
-
-            app.component('Result', Vue.defineAsyncComponent( () => loadModule('./Result.vue', options)))
-
-            app.mount('#result');
-        </script>
     </body>
 </html>
